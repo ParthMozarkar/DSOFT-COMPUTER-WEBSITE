@@ -244,60 +244,146 @@ document.head.insertAdjacentHTML('beforeend', `
 // =========================================
 // Initialize
 // =========================================
+// Force scroll to top on refresh
+if (history.scrollRestoration) {
+    history.scrollRestoration = 'manual';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    window.scrollTo(0, 0); // Jump to top immediately
     document.body.classList.add('loaded');
     console.log('🚀 D Soft Computer - Premium Website Initialized');
 
-    // Duplicate review cards for seamless infinite scroll
-    const track = document.querySelector('.reviews-track');
+    // --- GOOGLE REVIEWS MARQUEE ---
+    const track = document.getElementById('reviews-track');
     if (track) {
-        // 1. Clone cards to create infinite loop buffer
+        // Clone cards for infinite effect
         const cards = Array.from(track.children);
-        cards.forEach(card => track.appendChild(card.cloneNode(true)));
-        cards.forEach(card => track.appendChild(card.cloneNode(true))); // 3x content for safety
-
-        // 2. Auto Scroll Logic
-        let scrollSpeed = 0.5; // Very slow auto scroll
-        let isHovered = false;
-        let animationId;
-
-        function autoScroll() {
-            if (!isHovered) {
-                track.scrollLeft += scrollSpeed;
-                // Infinite Loop Reset: Reset when we've scrolled past the first set (1/3rd of total)
-                if (track.scrollLeft >= track.scrollWidth / 3) {
-                    track.scrollLeft = 0;
-                }
-            }
-            animationId = requestAnimationFrame(autoScroll);
-        }
-
-        // Start Auto Scroll
-        animationId = requestAnimationFrame(autoScroll);
-
-        // Pause on Hover
-        track.addEventListener('mouseenter', () => isHovered = true);
-        track.addEventListener('mouseleave', () => isHovered = false);
-
-        // 3. Manual Navigation Controls
-        const prevBtn = document.getElementById('rev-prev');
-        const nextBtn = document.getElementById('rev-next');
-        const scrollAmount = 350 + 32; // Card width + gap
-
-        if (prevBtn && nextBtn) {
-            prevBtn.addEventListener('click', () => {
-                track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-            });
-
-            nextBtn.addEventListener('click', () => {
-                track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-            });
-
-            // Pause auto-scroll briefly on interaction
-            [prevBtn, nextBtn].forEach(btn => {
-                btn.addEventListener('mouseenter', () => isHovered = true);
-                btn.addEventListener('mouseleave', () => isHovered = false);
-            });
-        }
+        cards.forEach(card => {
+            const clone = card.cloneNode(true);
+            track.appendChild(clone);
+        });
     }
 });
+
+// =========================================
+// Global Auth & Profile System
+// =========================================
+let isLoggedIn = localStorage.getItem('dsoft_isLoggedIn') === 'true';
+let currentUser = JSON.parse(localStorage.getItem('dsoft_user')) || null;
+
+function updateGlobalNavControls() {
+    const trigger = document.getElementById('global-auth-trigger');
+    const icon = document.getElementById('trigger-icon');
+    if (!trigger) return;
+
+    if (isLoggedIn && currentUser) {
+        if (icon) icon.textContent = currentUser.email.charAt(0).toUpperCase();
+        trigger.onclick = () => toggleProfilePanel(true);
+    } else {
+        if (icon) icon.textContent = '';
+        trigger.onclick = () => toggleAuthModal(true);
+    }
+}
+
+function toggleAuthModal(show) {
+    const authOverlay = document.getElementById('auth-overlay');
+    if (authOverlay) authOverlay.style.display = show ? 'block' : 'none';
+}
+
+function toggleProfilePanel(show) {
+    const profilePanel = document.getElementById('profile-panel');
+    if (profilePanel) {
+        profilePanel.classList.toggle('active', show);
+        if (show) updateProfileUI();
+    }
+}
+
+function updateProfileUI() {
+    if (!currentUser) return;
+    const nameEl = document.getElementById('profile-name');
+    const emailEl = document.getElementById('profile-email');
+    const avatarEl = document.getElementById('profile-avatar');
+    const historyContainer = document.getElementById('purchase-history');
+
+    if (nameEl) nameEl.textContent = currentUser.email.split('@')[0];
+    if (emailEl) emailEl.textContent = currentUser.email;
+    if (avatarEl) avatarEl.textContent = currentUser.email.charAt(0).toUpperCase();
+
+    if (historyContainer) {
+        const history = currentUser.history || [];
+        if (history.length === 0) {
+            historyContainer.innerHTML = '<p style="opacity:0.3; text-align:center; margin-top:40px;">No purchases yet.</p>';
+        } else {
+            historyContainer.innerHTML = history.map(item => `
+                <div class="purchase-history-item">
+                    <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                        <strong style="color:var(--color-orange); font-size: 0.8rem;">${item.id}</strong>
+                        <span style="font-size:0.7rem; opacity:0.5;">${item.date}</span>
+                    </div>
+                    <div style="font-size:0.8rem; opacity: 0.8;">${item.items.join(', ')}</div>
+                    <div style="font-weight:800; margin-top:5px; color: white;">₹${item.total}</div>
+                </div>
+            `).join('');
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateGlobalNavControls();
+
+    const closeAuthBtn = document.getElementById('close-auth');
+    if (closeAuthBtn) closeAuthBtn.onclick = () => toggleAuthModal(false);
+
+    const closeProfileBtn = document.getElementById('close-profile');
+    if (closeProfileBtn) closeProfileBtn.onclick = () => toggleProfilePanel(false);
+
+    const tabLogin = document.getElementById('tab-login');
+    const tabSignup = document.getElementById('tab-signup');
+    if (tabLogin && tabSignup) {
+        tabLogin.onclick = () => setAuthMode('login');
+        tabSignup.onclick = () => setAuthMode('signup');
+    }
+
+    const authForm = document.getElementById('auth-form');
+    if (authForm) {
+        authForm.onsubmit = (e) => {
+            e.preventDefault();
+            const email = document.getElementById('auth-email').value;
+            if (!email || !email.includes('@')) return alert('Please enter a valid email.');
+
+            isLoggedIn = true;
+            currentUser = { email, history: [] };
+            localStorage.setItem('dsoft_isLoggedIn', 'true');
+            localStorage.setItem('dsoft_user', JSON.stringify(currentUser));
+
+            toggleAuthModal(false);
+            updateGlobalNavControls();
+            updateProfileUI();
+        };
+    }
+
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) {
+        logoutBtn.onclick = () => {
+            isLoggedIn = false;
+            currentUser = null;
+            localStorage.removeItem('dsoft_isLoggedIn');
+            localStorage.removeItem('dsoft_user');
+            updateGlobalNavControls();
+            toggleProfilePanel(false);
+        };
+    }
+});
+
+function setAuthMode(mode) {
+    const tabLogin = document.getElementById('tab-login');
+    const tabSignup = document.getElementById('tab-signup');
+    const authTitle = document.getElementById('auth-title');
+    const authSubmitBtn = document.getElementById('auth-submit-btn');
+
+    if (tabLogin) tabLogin.classList.toggle('active', mode === 'login');
+    if (tabSignup) tabSignup.classList.toggle('active', mode === 'signup');
+    if (authTitle) authTitle.textContent = mode === 'login' ? 'Welcome Back' : 'Join D\'Soft';
+    if (authSubmitBtn) authSubmitBtn.textContent = mode === 'login' ? 'Login ' : 'Sign Up ';
+}

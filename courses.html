@@ -277,6 +277,37 @@
             width: 100%;
             justify-content: center;
         }
+
+        /* Hide all pricing information */
+        .current-price {
+            display: none !important;
+        }
+
+        .price-container {
+            justify-content: center;
+        }
+
+        /* Hide strikethrough prices in bundles */
+        .combo-card .price-container span[style*="line-through"] {
+            display: none !important;
+        }
+
+        /* Adjust duration tag styling when price is hidden */
+        .duration-tag {
+            font-size: 1rem;
+            color: var(--color-orange);
+            font-weight: 600;
+        }
+
+        /* Hide total price in cart */
+        .total-price {
+            display: none !important;
+        }
+
+        /* Hide checkout summary price */
+        #checkout-summary {
+            display: none !important;
+        }
     </style>
 </head>
 
@@ -369,90 +400,338 @@
         </header>
 
         <div class="detailed-grid">
-            <!-- Individual Course Cards -->
-            <div class="course-detail-card" data-id="python" data-name="Python Mastery" data-price="4999">
+            <!-- Placement Orientated Courses -->
+
+            <!-- 1. Python + Generative AI -->
+            <div class="course-detail-card" data-id="python-ai" data-name="Python + Generative AI" data-price="12999">
                 <div>
-                    <h3 class="stat-number" style="font-size: 1.8rem; margin-bottom: 10px;">Python Mastery</h3>
-                    <p>Advanced automation, web scrapers, and AI-ready logic core. No "ratta", only deep logic building.
-                    </p>
+                    <span class="cc-rating"
+                        style="color: var(--color-orange); font-weight: 800; font-size: 0.9rem; display: block; margin-bottom: 10px;">★
+                        Trending</span>
+                    <h3 class="stat-number" style="font-size: 1.8rem; margin-bottom: 10px;">Python + Generative AI</h3>
+                    <p>Master LangChain, LLMs, OpenAI & Gemini. Build advanced Chatbots & AI Agents. Learn to create
+                        intelligent systems that understand context, generate human-like responses, and automate complex
+                        tasks. Industry's most sought-after skillset with hands-on projects in AI automation.</p>
                 </div>
                 <div class="bottom-part">
                     <div class="price-container">
-                        <span class="current-price">₹4,999</span>
-                        <span class="duration-tag">3 Months</span>
+                        <span class="current-price">₹12,999</span>
+                        <span class="duration-tag">5-6 Months</span>
                     </div>
                     <button class="btn btn-secondary btn-full add-to-cart">Add to Cart</button>
                 </div>
             </div>
 
-            <div class="course-detail-card" data-id="java" data-name="Java Enterprise" data-price="5499">
+            <!-- 2. FullStack MERN -->
+            <div class="course-detail-card" data-id="mern" data-name="FullStack MERN Development" data-price="14999">
                 <div>
-                    <h3 class="stat-number" style="font-size: 1.8rem; margin-bottom: 10px;">Java Enterprise</h3>
-                    <p>Core JVM, Multithreading, and JDBC. The bedrock of enterprise software engineering.</p>
+                    <span class="cc-rating"
+                        style="color: var(--color-orange); font-weight: 800; font-size: 0.9rem; display: block; margin-bottom: 10px;">★
+                        4.9</span>
+                    <h3 class="stat-number" style="font-size: 1.8rem; margin-bottom: 10px;">FullStack MERN</h3>
+                    <p>Complete web development stack: HTML, CSS, JavaScript, ES6, MongoDB, Express.js, React.js,
+                        Node.js, AWS deployment, and MySQL database. Build production-ready web applications from
+                        scratch with modern best practices and cloud deployment skills.</p>
                 </div>
                 <div class="bottom-part">
                     <div class="price-container">
-                        <span class="current-price">₹5,499</span>
-                        <span class="duration-tag">4 Months</span>
+                        <span class="current-price">₹14,999</span>
+                        <span class="duration-tag">4-6 Months</span>
                     </div>
                     <button class="btn btn-secondary btn-full add-to-cart">Add to Cart</button>
                 </div>
             </div>
 
-            <div class="course-detail-card" data-id="c-cpp" data-name="C/C++ Wisdom" data-price="3999">
+            <!-- 3. FullStack Java -->
+            <div class="course-detail-card" data-id="java-fullstack" data-name="FullStack Java Development"
+                data-price="15999">
                 <div>
-                    <h3 class="stat-number" style="font-size: 1.8rem; margin-bottom: 10px;">C / C++ Wisdom</h3>
-                    <p>Memory management, pointers, and performance optimization. Understand how code speaks to
-                        hardware.</p>
+                    <span class="cc-rating"
+                        style="color: var(--color-orange); font-weight: 800; font-size: 0.9rem; display: block; margin-bottom: 10px;">★
+                        4.8</span>
+                    <h3 class="stat-number" style="font-size: 1.8rem; margin-bottom: 10px;">FullStack Java</h3>
+                    <p>Enterprise-grade development: Java Core & Advanced, Spring Boot, Microservices architecture,
+                        React JS for frontend, Oracle & MySQL databases. Perfect for building scalable, enterprise-level
+                        applications used by Fortune 500 companies.</p>
+                </div>
+                <div class="bottom-part">
+                    <div class="price-container">
+                        <span class="current-price">₹15,999</span>
+                        <span class="duration-tag">4-6 Months</span>
+                    </div>
+                    <button class="btn btn-secondary btn-full add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- 4. FullStack Python -->
+            <div class="course-detail-card" data-id="python-fullstack" data-name="FullStack Python Development"
+                data-price="14999">
+                <div>
+                    <span class="cc-rating"
+                        style="color: var(--color-orange); font-weight: 800; font-size: 0.9rem; display: block; margin-bottom: 10px;">★
+                        4.7</span>
+                    <h3 class="stat-number" style="font-size: 1.8rem; margin-bottom: 10px;">FullStack Python</h3>
+                    <p>Core & Advanced Python, Django framework, Flask, REST API development, MySQL database, and React
+                        JS. Master the full stack with Python - one of the most versatile and in-demand programming
+                        languages for web development and data science.</p>
+                </div>
+                <div class="bottom-part">
+                    <div class="price-container">
+                        <span class="current-price">₹14,999</span>
+                        <span class="duration-tag">4-6 Months</span>
+                    </div>
+                    <button class="btn btn-secondary btn-full add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Coding Foundation Courses -->
+
+            <!-- 5. C Programming -->
+            <div class="course-detail-card" data-id="c-programming" data-name="C Programming Fundamentals"
+                data-price="3999">
+                <div>
+                    <span class="cc-rating"
+                        style="color: var(--color-orange); font-weight: 800; font-size: 0.9rem; display: block; margin-bottom: 10px;">★
+                        4.8</span>
+                    <h3 class="stat-number" style="font-size: 1.8rem; margin-bottom: 10px;">C Programming</h3>
+                    <p>Master the mother of all languages. Deep-dive into pointers, memory management, data structures,
+                        and logic building. Build a rock-solid foundation that makes learning any other language
+                        effortless. Essential for system programming and understanding computer fundamentals.</p>
                 </div>
                 <div class="bottom-part">
                     <div class="price-container">
                         <span class="current-price">₹3,999</span>
-                        <span class="duration-tag">5 Months</span>
+                        <span class="duration-tag">2 Months</span>
                     </div>
                     <button class="btn btn-secondary btn-full add-to-cart">Add to Cart</button>
                 </div>
             </div>
 
-            <div class="course-detail-card" data-id="dsa" data-name="DSA Elite" data-price="4499">
+            <!-- 6. C++ Programming -->
+            <div class="course-detail-card" data-id="cpp-programming" data-name="C++ Programming Advanced"
+                data-price="4499">
                 <div>
-                    <h3 class="stat-number" style="font-size: 1.8rem; margin-bottom: 10px;">DSA Elite</h3>
-                    <p>Algorithm optimization and complex data structures. The key to clearing FAANG-level interviews.
+                    <span class="cc-rating"
+                        style="color: var(--color-orange); font-weight: 800; font-size: 0.9rem; display: block; margin-bottom: 10px;">★
+                        4.8</span>
+                    <h3 class="stat-number" style="font-size: 1.8rem; margin-bottom: 10px;">C++ Programming</h3>
+                    <p>Object-Oriented Programming (OOP), Standard Template Library (STL), and high-performance
+                        application development. Learn to build efficient, fast applications used in gaming, real-time
+                        systems, and competitive programming. Master classes, inheritance, polymorphism, and templates.
                     </p>
                 </div>
                 <div class="bottom-part">
                     <div class="price-container">
                         <span class="current-price">₹4,499</span>
-                        <span class="duration-tag">4 Months</span>
+                        <span class="duration-tag">2 Months</span>
                     </div>
                     <button class="btn btn-secondary btn-full add-to-cart">Add to Cart</button>
                 </div>
             </div>
 
-            <div class="course-detail-card" data-id="springboot" data-name="Spring Boot" data-price="5999">
+            <!-- 7. Data Structures (DSA) -->
+            <div class="course-detail-card" data-id="dsa" data-name="Data Structures & Algorithms" data-price="5999">
                 <div>
-                    <h3 class="stat-number" style="font-size: 1.8rem; margin-bottom: 10px;">Spring Boot</h3>
-                    <p>Modern microservices, REST APIs, and Cloud deployment. The standard for building scalable
-                        backends.</p>
+                    <span class="cc-rating"
+                        style="color: var(--color-orange); font-weight: 800; font-size: 0.9rem; display: block; margin-bottom: 10px;">★
+                        4.9</span>
+                    <h3 class="stat-number" style="font-size: 1.8rem; margin-bottom: 10px;">Data Structures (DSA)</h3>
+                    <p>Master Arrays, Linked Lists, Trees, Graphs, Sorting & Searching algorithms. The key to clearing
+                        FAANG-level interviews at Google, Microsoft, Amazon. Learn problem-solving techniques, time &
+                        space complexity analysis, and competitive programming strategies.</p>
                 </div>
                 <div class="bottom-part">
                     <div class="price-container">
                         <span class="current-price">₹5,999</span>
-                        <span class="duration-tag">3 Months</span>
+                        <span class="duration-tag">2 Months</span>
                     </div>
                     <button class="btn btn-secondary btn-full add-to-cart">Add to Cart</button>
                 </div>
             </div>
 
-            <div class="course-detail-card" data-id="javascript" data-name="JavaScript Pro" data-price="4499">
+            <!-- 8. Oracle (SQL/PLSQL) -->
+            <div class="course-detail-card" data-id="oracle" data-name="Oracle Database Mastery" data-price="4999">
                 <div>
-                    <h3 class="stat-number" style="font-size: 1.8rem; margin-bottom: 10px;">JavaScript Pro</h3>
-                    <p>Asynchronous JS, Promises, ES6+, and modern DOM manipulation logic.</p>
+                    <span class="cc-rating"
+                        style="color: var(--color-orange); font-weight: 800; font-size: 0.9rem; display: block; margin-bottom: 10px;">★
+                        4.7</span>
+                    <h3 class="stat-number" style="font-size: 1.8rem; margin-bottom: 10px;">Oracle Database</h3>
+                    <p>Enterprise Database Management, advanced SQL Queries, PL/SQL programming, Triggers, Stored
+                        Procedures, and database optimization. Master the world's most powerful enterprise database
+                        system used by banks, government organizations, and large corporations worldwide.</p>
+                </div>
+                <div class="bottom-part">
+                    <div class="price-container">
+                        <span class="current-price">₹4,999</span>
+                        <span class="duration-tag">2 Months</span>
+                    </div>
+                    <button class="btn btn-secondary btn-full add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- 9. Core Java / Python -->
+            <div class="course-detail-card" data-id="core-java-python" data-name="Core Java / Python" data-price="4499">
+                <div>
+                    <span class="cc-rating"
+                        style="color: var(--color-orange); font-weight: 800; font-size: 0.9rem; display: block; margin-bottom: 10px;">★
+                        4.8</span>
+                    <h3 class="stat-number" style="font-size: 1.8rem; margin-bottom: 10px;">Core Java / Python</h3>
+                    <p>Solidify your programming foundation with stronger Object Oriented Programming concepts in Java
+                        or Python. Learn exception handling, file handling, collections framework, and design patterns.
+                        Perfect stepping stone before advancing to full-stack development.</p>
                 </div>
                 <div class="bottom-part">
                     <div class="price-container">
                         <span class="current-price">₹4,499</span>
-                        <span class="duration-tag">3 Months</span>
+                        <span class="duration-tag">2-3 Months</span>
+                    </div>
+                    <button class="btn btn-secondary btn-full add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Government Recognised Courses -->
+
+            <!-- 10. Tally Prime -->
+            <div class="course-detail-card" data-id="tally-prime" data-name="Tally Prime with GST" data-price="3999">
+                <div>
+                    <span class="cc-rating"
+                        style="color: var(--color-orange); font-weight: 800; font-size: 0.9rem; display: block; margin-bottom: 10px;">★
+                        4.9</span>
+                    <h3 class="stat-number" style="font-size: 1.8rem; margin-bottom: 10px;">Tally Prime</h3>
+                    <p>Master GST compliance, voucher management, multi-currency handling, inventory reports, and modern
+                        accounting essentials. Perfect for accounting, finance, and business management roles. Learn the
+                        most widely-used accounting software in India with practical business scenarios.</p>
+                </div>
+                <div class="bottom-part">
+                    <div class="price-container">
+                        <span class="current-price">₹3,999</span>
+                        <span class="duration-tag">2.5 Months</span>
+                    </div>
+                    <button class="btn btn-secondary btn-full add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- 11. Advanced Excel -->
+            <div class="course-detail-card" data-id="advanced-excel" data-name="Advanced Excel Mastery"
+                data-price="3499">
+                <div>
+                    <span class="cc-rating"
+                        style="color: var(--color-orange); font-weight: 800; font-size: 0.9rem; display: block; margin-bottom: 10px;">★
+                        4.6</span>
+                    <h3 class="stat-number" style="font-size: 1.8rem; margin-bottom: 10px;">Advanced Excel</h3>
+                    <p>Become a data expert with complex datasets, pivot tables, advanced formulas (VLOOKUP,
+                        INDEX-MATCH, SUMIFS), macros, VBA programming, Power Query, and sophisticated reporting tools.
+                        Essential for data analysis, business intelligence, and corporate decision-making.</p>
+                </div>
+                <div class="bottom-part">
+                    <div class="price-container">
+                        <span class="current-price">₹3,499</span>
+                        <span class="duration-tag">1.5 Months</span>
+                    </div>
+                    <button class="btn btn-secondary btn-full add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- 12. MS Office -->
+            <div class="course-detail-card" data-id="ms-office" data-name="MS Office Complete Suite" data-price="2999">
+                <div>
+                    <span class="cc-rating"
+                        style="color: var(--color-orange); font-weight: 800; font-size: 0.9rem; display: block; margin-bottom: 10px;">★
+                        4.7</span>
+                    <h3 class="stat-number" style="font-size: 1.8rem; margin-bottom: 10px;">MS Office</h3>
+                    <p>High-quality administrative support training covering MS Word (advanced document creation), Excel
+                        (spreadsheets & formulas), PowerPoint (professional presentations), and Outlook. Essential
+                        office productivity skills required for every modern workplace and corporate environment.</p>
+                </div>
+                <div class="bottom-part">
+                    <div class="price-container">
+                        <span class="current-price">₹2,999</span>
+                        <span class="duration-tag">1.5 Months</span>
+                    </div>
+                    <button class="btn btn-secondary btn-full add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- 13. Excel (Basic) -->
+            <div class="course-detail-card" data-id="excel-basic" data-name="Excel Fundamentals" data-price="1999">
+                <div>
+                    <span class="cc-rating"
+                        style="color: var(--color-orange); font-weight: 800; font-size: 0.9rem; display: block; margin-bottom: 10px;">★
+                        4.8</span>
+                    <h3 class="stat-number" style="font-size: 1.8rem; margin-bottom: 10px;">Excel (Basic)</h3>
+                    <p>Fundamental skills for daily tasks including data entry, formatting techniques, basic formulas
+                        (SUM, AVERAGE, COUNT), chart creation, and productivity tips. Perfect for beginners who want to
+                        master spreadsheet basics for office work and personal productivity.</p>
+                </div>
+                <div class="bottom-part">
+                    <div class="price-container">
+                        <span class="current-price">₹1,999</span>
+                        <span class="duration-tag">1.5 Months</span>
+                    </div>
+                    <button class="btn btn-secondary btn-full add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- 14. MS-CIT -->
+            <div class="course-detail-card" data-id="mscit" data-name="MS-CIT Certification Program" data-price="2499">
+                <div>
+                    <span class="cc-rating"
+                        style="color: var(--color-orange); font-weight: 800; font-size: 0.9rem; display: block; margin-bottom: 10px;">★
+                        4.9</span>
+                    <h3 class="stat-number" style="font-size: 1.8rem; margin-bottom: 10px;">MS-CIT</h3>
+                    <p>MKCL's flagship IT literacy course covering 200+ life-improving computer skills including
+                        internet basics, email communication, digital payments, cyber security, and essential software.
+                        Government-recognized certification for global job-readiness and digital confidence.</p>
+                </div>
+                <div class="bottom-part">
+                    <div class="price-container">
+                        <span class="current-price">₹2,499</span>
+                        <span class="duration-tag">2 Months</span>
+                    </div>
+                    <button class="btn btn-secondary btn-full add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Diploma Courses -->
+
+            <!-- 15. DCP (Diploma in Computer Programming) -->
+            <div class="course-detail-card" data-id="dcp" data-name="Diploma in Computer Programming"
+                data-price="18999">
+                <div>
+                    <span class="cc-rating"
+                        style="color: var(--color-orange); font-weight: 800; font-size: 0.9rem; display: block; margin-bottom: 10px;">★
+                        4.9</span>
+                    <h3 class="stat-number" style="font-size: 1.8rem; margin-bottom: 10px;">Diploma in Programming (DCP)
+                    </h3>
+                    <p>Grand Combo Package: C Programming + Core Java or Python + Oracle Database + Full Stack Web
+                        Development (HTML, CSS, JavaScript, Bootstrap). Complete programming diploma that takes you from
+                        absolute beginner to job-ready developer with industry-standard skills.</p>
+                </div>
+                <div class="bottom-part">
+                    <div class="price-container">
+                        <span class="current-price">₹18,999</span>
+                        <span class="duration-tag">6-8 Months</span>
+                    </div>
+                    <button class="btn btn-secondary btn-full add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- 16. DCA (Diploma in Computer Accounting) -->
+            <div class="course-detail-card" data-id="dca" data-name="Diploma in Computer Accounting" data-price="8999">
+                <div>
+                    <span class="cc-rating"
+                        style="color: var(--color-orange); font-weight: 800; font-size: 0.9rem; display: block; margin-bottom: 10px;">★
+                        4.9</span>
+                    <h3 class="stat-number" style="font-size: 1.8rem; margin-bottom: 10px;">Diploma in Accounting (DCA)
+                    </h3>
+                    <p>Professional Combo Package: Tally Prime with GST + Advanced Excel with VBA + KLiC Diploma
+                        Certified Exam training. Complete accounting and finance diploma recognized by industry. Perfect
+                        for pursuing careers in accounting, auditing, taxation, and financial management.</p>
+                </div>
+                <div class="bottom-part">
+                    <div class="price-container">
+                        <span class="current-price">₹8,999</span>
+                        <span class="duration-tag">5-6 Months</span>
                     </div>
                     <button class="btn btn-secondary btn-full add-to-cart">Add to Cart</button>
                 </div>
@@ -461,28 +740,30 @@
 
         <div class="combo-section">
             <div style="text-align: center; margin-bottom: 40px;">
-                <h2 class="section-title">Exclusive <span class="text-gradient">Bundle Offers</span></h2>
-                <p>Fast track your career and save 30% with our curated bundles.</p>
+                <h2 class="section-title">Exclusive <span class="text-gradient">Diploma Packages</span></h2>
+                <p>Fast track your career and save money with our comprehensive diploma programs.</p>
             </div>
             <div class="combo-grid">
-                <div class="combo-card" data-id="fullstack" data-name="Full Stack Pro Bundle" data-price="14999">
+                <div class="combo-card" data-id="dcp-bundle" data-name="Diploma in Computer Programming"
+                    data-price="18999">
                     <span class="combo-badge">BEST VALUE</span>
-                    <h3>Full Stack Pro</h3>
-                    <p style="margin: 15px 0;">Java + Spring Boot + JavaScript + Oracle Database</p>
+                    <h3>Diploma in Computer Programming (DCP)</h3>
+                    <p style="margin: 15px 0;">C Programming + Core Java/Python + Oracle + Full Stack Web Dev</p>
                     <div class="price-container">
-                        <span class="current-price">₹14,999</span>
-                        <span style="text-decoration: line-through; color: #555; font-size: 1.2rem;">₹20,000</span>
+                        <span class="current-price">₹18,999</span>
+                        <span style="text-decoration: line-through; color: #555; font-size: 1.2rem;">₹25,000</span>
                     </div>
                     <button class="btn btn-primary btn-full add-to-cart">Add Bundle</button>
                 </div>
 
-                <div class="combo-card" data-id="logic" data-name="Logic Foundation" data-price="6999">
+                <div class="combo-card" data-id="dca-bundle" data-name="Diploma in Computer Accounting"
+                    data-price="8999">
                     <span class="combo-badge">POPULAR</span>
-                    <h3>Logic Foundation</h3>
-                    <p style="margin: 15px 0;">C/C++ + Data Structures & Algorithms (DSA)</p>
+                    <h3>Diploma in Computer Accounting (DCA)</h3>
+                    <p style="margin: 15px 0;">Tally Prime + Advanced Excel + KLiC Certified Exam</p>
                     <div class="price-container">
-                        <span class="current-price">₹6,999</span>
-                        <span style="text-decoration: line-through; color: #555; font-size: 1.2rem;">₹8,500</span>
+                        <span class="current-price">₹8,999</span>
+                        <span style="text-decoration: line-through; color: #555; font-size: 1.2rem;">₹12,000</span>
                     </div>
                     <button class="btn btn-primary btn-full add-to-cart">Add Bundle</button>
                 </div>

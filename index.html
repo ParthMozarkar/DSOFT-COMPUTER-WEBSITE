@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -43,7 +43,7 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-bg">
-            <img src="hero-portrait.png" alt="Tech Hero" class="hero-portrait">
+            <img src="assets/images/hero-portrait.png" alt="Tech Hero" class="hero-portrait">
             <!-- 3D Overlay -->
             <canvas id="hero-canvas"></canvas>
         </div>
@@ -140,125 +140,348 @@
                 <span class="section-tag">Our Programs</span>
                 <h2 class="section-title">Master Technologies <span class="text-gradient">That Matter</span></h2>
             </div>
-            <div class="courses-grid">
-                <!-- Python -->
-                <article class="course-card">
-                    <div class="course-header">
-                        <span class="course-icon">🐍</span>
-                        <span class="course-duration">3 Months</span>
+
+            <!-- Course Categories Tabs -->
+            <div class="course-tabs" id="course-tabs">
+                <button class="tab-btn active" data-filter="all">All Courses</button>
+                <button class="tab-btn" data-filter="placement">Placement Orientated</button>
+                <button class="tab-btn" data-filter="foundation">Coding Foundation</button>
+                <button class="tab-btn" data-filter="govt">Govt Recognised</button>
+                <button class="tab-btn" data-filter="dcp">DCP</button>
+                <button class="tab-btn" data-filter="dca">DCA</button>
+            </div>
+
+            <div class="courses-grid-dense" id="courses-container">
+                <!-- Category 1: Placement Orientated -->
+                <article class="course-card-clone" data-category="placement">
+                    <div class="cc-header color-1">
+                        <span class="cc-icon">🤖</span>
+                        <span class="cc-rating">★ Trending</span>
                     </div>
-                    <h3>Python Mastery</h3>
-                    <p>Go from basics to advanced automation and AI integration with zero "ratta".</p>
-                    <div class="course-meta">
-                        <span>Logic Driven</span>
-                        <span>Industry Ready</span>
+                    <div class="cc-body">
+                        <h3>Python + Generative AI</h3>
+                        <p class="cc-desc">Master LangChain, LLMs, OpenAI & Gemini. Build advanced Chatbots & AI Agents.
+                        </p>
+                        <div class="cc-meta">
+                            <span>📅 New Batch: Starting Soon</span>
+                            <span>⏳ 5-6 Months</span>
+                        </div>
+                        <div class="cc-actions">
+                            <button class="btn-outline">Syllabus</button>
+                            <button class="btn-fill">Enroll</button>
+                        </div>
                     </div>
                 </article>
 
-                <!-- Java -->
-                <article class="course-card">
-                    <div class="course-header">
-                        <span class="course-icon">☕</span>
-                        <span class="course-duration">4 Months</span>
+                <article class="course-card-clone" data-category="placement">
+                    <div class="cc-header color-2">
+                        <span class="cc-icon">🌐</span>
+                        <span class="cc-rating">★ Popular</span>
                     </div>
-                    <h3>Java Enterprise</h3>
-                    <p>Mastering core JVM concepts and advanced application architecture.</p>
-                    <div class="course-meta">
-                        <span>OOP Focus</span>
-                        <span>Scalable Tech</span>
-                    </div>
-                </article>
-
-                <!-- C/C++ -->
-                <article class="course-card">
-                    <div class="course-header">
-                        <span class="course-icon">⚙️</span>
-                        <span class="course-duration">5 Months</span>
-                    </div>
-                    <h3>C / C++ Wisdom</h3>
-                    <p>Understand the memory, pointers, and performance logic behind every line.</p>
-                    <div class="course-meta">
-                        <span>Memory Management</span>
-                        <span>System Level</span>
+                    <div class="cc-body">
+                        <h3>FullStack MERN</h3>
+                        <p class="cc-desc">HTML, CSS, JS, ES6, MongoDB, Express, React, Node, AWS, MySQL.</p>
+                        <div class="cc-meta">
+                            <span>📅 New Batch: Monday</span>
+                            <span>⏳ 4-6 Months</span>
+                        </div>
+                        <div class="cc-actions">
+                            <button class="btn-outline">Syllabus</button>
+                            <button class="btn-fill">Enroll</button>
+                        </div>
                     </div>
                 </article>
 
-                <!-- DSA -->
-                <article class="course-card">
-                    <div class="course-header">
-                        <span class="course-icon">🧠</span>
-                        <span class="course-duration">4 Months</span>
+                <article class="course-card-clone" data-category="placement">
+                    <div class="cc-header color-3">
+                        <span class="cc-icon">☕</span>
+                        <span class="cc-rating">★ Elite</span>
                     </div>
-                    <h3>DSA Elite</h3>
-                    <p>The core of top-tier jobs. Algorithmic thinking and data optimization.</p>
-                    <div class="course-meta">
-                        <span>Problem Solving</span>
-                        <span>Interview Prep</span>
-                    </div>
-                </article>
-
-                <!-- SpringBoot -->
-                <article class="course-card">
-                    <div class="course-header">
-                        <span class="course-icon">🍃</span>
-                        <span class="course-duration">3 Months</span>
-                    </div>
-                    <h3>Spring Boot</h3>
-                    <p>Modern microservices, REST APIs, and cloud-native development.</p>
-                    <div class="course-meta">
-                        <span>Backend Pro</span>
-                        <span>Architecture</span>
+                    <div class="cc-body">
+                        <h3>FullStack Java</h3>
+                        <p class="cc-desc">Java, Spring Boot, Microservices, React JS, Oracle & MySQL.</p>
+                        <div class="cc-meta">
+                            <span>📅 New Batch: Next Month</span>
+                            <span>⏳ 4-6 Months</span>
+                        </div>
+                        <div class="cc-actions">
+                            <button class="btn-outline">Syllabus</button>
+                            <button class="btn-fill">Enroll</button>
+                        </div>
                     </div>
                 </article>
 
-                <!-- Javascript -->
-                <article class="course-card">
-                    <div class="course-header">
-                        <span class="course-icon">📜</span>
-                        <span class="course-duration">3 Months</span>
+                <article class="course-card-clone" data-category="placement">
+                    <div class="cc-header color-4">
+                        <span class="cc-icon">🐍</span>
+                        <span class="cc-rating">★ High Growth</span>
                     </div>
-                    <h3>JavaScript Pro</h3>
-                    <p>Mastering the web through deep understanding of async/await and ES6+.</p>
-                    <div class="course-meta">
-                        <span>Interactive UI</span>
-                        <span>Modern JS</span>
-                    </div>
-                </article>
-
-                <!-- Oracle -->
-                <article class="course-card">
-                    <div class="course-header">
-                        <span class="course-icon">🗄️</span>
-                        <span class="course-duration">2 Months</span>
-                    </div>
-                    <h3>Oracle Database</h3>
-                    <p>Deep dive into SQL, PL/SQL, and relational database management logic.</p>
-                    <div class="course-meta">
-                        <span>Query Mastery</span>
-                        <span>Data Security</span>
+                    <div class="cc-body">
+                        <h3>FullStack Python</h3>
+                        <p class="cc-desc">Core & Adv Python, Django, Flask, REST API, MySQL, React JS.</p>
+                        <div class="cc-meta">
+                            <span>📅 New Batch: Next Week</span>
+                            <span>⏳ 4-6 Months</span>
+                        </div>
+                        <div class="cc-actions">
+                            <button class="btn-outline">Syllabus</button>
+                            <button class="btn-fill">Enroll</button>
+                        </div>
                     </div>
                 </article>
 
-                <!-- KLiC / MS-CIT -->
-                <article class="course-card">
-                    <div class="course-header">
-                        <span class="course-icon">🖥️</span>
-                        <span class="course-duration">3-6 Months</span>
+                <!-- Category 2: Coding Foundation -->
+                <article class="course-card-clone" data-category="foundation">
+                    <div class="cc-header color-5">
+                        <span class="cc-icon">⚙️</span>
+                        <span class="cc-rating">★ Core</span>
                     </div>
-                    <h3>KLiC / MS-CIT</h3>
-                    <p>Government recognized certification and essential digital literacy skills for everyone.</p>
-                    <div class="course-meta">
-                        <span>MKCL Auth.</span>
-                        <span>Job Ready</span>
+                    <div class="cc-body">
+                        <h3>C Programming</h3>
+                        <p class="cc-desc">Logic building with pointers, memory management, and data structures from
+                            scratch.</p>
+                        <div class="cc-meta">
+                            <span>📅 New Batch: Weekly</span>
+                            <span>⏳ 2 Months</span>
+                        </div>
+                        <div class="cc-actions">
+                            <button class="btn-outline">Syllabus</button>
+                            <button class="btn-fill">Enroll</button>
+                        </div>
                     </div>
                 </article>
 
-                <!-- Career Start -->
-                <article class="course-card course-cta-card">
-                    <div class="cta-inner">
-                        <h3>Explore Our Full Curriculum</h3>
-                        <p>Discover detailed modules, pricing, and exclusive combo offers.</p>
-                        <a href="courses.html" class="btn btn-primary btn-sm">Learn More →</a>
+                <article class="course-card-clone" data-category="foundation">
+                    <div class="cc-header color-1">
+                        <span class="cc-icon">🎮</span>
+                        <span class="cc-rating">★ OOP</span>
+                    </div>
+                    <div class="cc-body">
+                        <h3>C++ Programming</h3>
+                        <p class="cc-desc">Object Oriented Programming, STL, and advanced system-level concepts.</p>
+                        <div class="cc-meta">
+                            <span>📅 New Batch: Every 15th</span>
+                            <span>⏳ 2 Months</span>
+                        </div>
+                        <div class="cc-actions">
+                            <button class="btn-outline">Syllabus</button>
+                            <button class="btn-fill">Enroll</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="course-card-clone" data-category="foundation">
+                    <div class="cc-header color-2">
+                        <span class="cc-icon">🧠</span>
+                        <span class="cc-rating">★ Logic</span>
+                    </div>
+                    <div class="cc-body">
+                        <h3>DSA (Coding)</h3>
+                        <p class="cc-desc">Master Algorithms, Trees, Graphs, and Dynamic Programming for top tech
+                            interviews.</p>
+                        <div class="cc-meta">
+                            <span>📅 New Batch: Monthly</span>
+                            <span>⏳ 2 Months</span>
+                        </div>
+                        <div class="cc-actions">
+                            <button class="btn-outline">Syllabus</button>
+                            <button class="btn-fill">Enroll</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="course-card-clone" data-category="foundation">
+                    <div class="cc-header color-3">
+                        <span class="cc-icon">🗄️</span>
+                        <span class="cc-rating">★ Data</span>
+                    </div>
+                    <div class="cc-body">
+                        <h3>Oracle (SQL/PLSQL)</h3>
+                        <p class="cc-desc">Database design, complex queries, and backend management mastery.</p>
+                        <div class="cc-meta">
+                            <span>📅 New Batch: Every Monday</span>
+                            <span>⏳ 2 Months</span>
+                        </div>
+                        <div class="cc-actions">
+                            <button class="btn-outline">Syllabus</button>
+                            <button class="btn-fill">Enroll</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="course-card-clone" data-category="foundation">
+                    <div class="cc-header color-4">
+                        <span class="cc-icon">💻</span>
+                        <span class="cc-rating">★ Basic</span>
+                    </div>
+                    <div class="cc-body">
+                        <h3>Core Java / Python</h3>
+                        <p class="cc-desc">Start your programming journey with a strong foundation in either Java or
+                            Python.</p>
+                        <div class="cc-meta">
+                            <span>📅 New Batch: Twice a month</span>
+                            <span>⏳ 2-3 Months</span>
+                        </div>
+                        <div class="cc-actions">
+                            <button class="btn-outline">Syllabus</button>
+                            <button class="btn-fill">Enroll</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Category 3: Govt Recognised -->
+                <article class="course-card-clone" data-category="govt">
+                    <div class="cc-header color-5">
+                        <span class="cc-icon">💹</span>
+                        <span class="cc-rating">★ 4.9</span>
+                    </div>
+                    <div class="cc-body">
+                        <h3>Tally Prime</h3>
+                        <p class="cc-desc">Master GST, voucher management, multi-currency handling, and inventory
+                            reports with modern accounting essentials.</p>
+                        <div class="cc-meta">
+                            <span>📅 New Batch: Weekly</span>
+                            <span>⏳ 2.5 Months</span>
+                        </div>
+                        <div class="cc-actions">
+                            <button class="btn-outline">Syllabus</button>
+                            <button class="btn-fill">Enroll</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="course-card-clone" data-category="govt">
+                    <div class="cc-header color-1">
+                        <span class="cc-icon">📊</span>
+                        <span class="cc-rating">★ 4.8</span>
+                    </div>
+                    <div class="cc-body">
+                        <h3>Advanced Excel</h3>
+                        <p class="cc-desc">Become a data expert. Analyze complex datasets, create sophisticated reports,
+                            and master organizational forecasting tools.</p>
+                        <div class="cc-meta">
+                            <span>📅 New Batch: Monday</span>
+                            <span>⏳ 1.5 Months</span>
+                        </div>
+                        <div class="cc-actions">
+                            <button class="btn-outline">Syllabus</button>
+                            <button class="btn-fill">Enroll</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="course-card-clone" data-category="govt">
+                    <div class="cc-header color-2">
+                        <span class="cc-icon">📁</span>
+                        <span class="cc-rating">★ 4.7</span>
+                    </div>
+                    <div class="cc-body">
+                        <h3>MS Office</h3>
+                        <p class="cc-desc">High-quality administrative support training. Expert use of Word,
+                            Spreadsheets, and Presentation tools for modern offices.</p>
+                        <div class="cc-meta">
+                            <span>📅 New Batch: Every 15th</span>
+                            <span>⏳ 1.5 Months</span>
+                        </div>
+                        <div class="cc-actions">
+                            <button class="btn-outline">Syllabus</button>
+                            <button class="btn-fill">Enroll</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="course-card-clone" data-category="govt">
+                    <div class="cc-header color-3">
+                        <span class="cc-icon">📉</span>
+                        <span class="cc-rating">★ 4.8</span>
+                    </div>
+                    <div class="cc-body">
+                        <h3>Excel (Basic)</h3>
+                        <p class="cc-desc">Fundamental skills for daily tasks. Mastery of data entry, formatting, and
+                            basic formulas for productivity.</p>
+                        <div class="cc-meta">
+                            <span>📅 New Batch: Weekly</span>
+                            <span>⏳ 1.5 Months</span>
+                        </div>
+                        <div class="cc-actions">
+                            <button class="btn-outline">Syllabus</button>
+                            <button class="btn-fill">Enroll</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="course-card-clone" data-category="govt">
+                    <div class="cc-header color-4">
+                        <span class="cc-icon">🏛️</span>
+                        <span class="cc-rating">★ 4.9</span>
+                    </div>
+                    <div class="cc-body">
+                        <h3>MS-CIT</h3>
+                        <p class="cc-desc">MKCL's flagship IT literacy course. 200+ life-improving skills for global
+                            job-readiness and digital confidence.</p>
+                        <div class="cc-meta">
+                            <span>📅 New Batch: Monthly</span>
+                            <span>⏳ 2 Months</span>
+                        </div>
+                        <div class="cc-actions">
+                            <button class="btn-outline">Syllabus</button>
+                            <button class="btn-fill">Enroll</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Category 4: DCP (Consolidated) -->
+                <article class="course-card-clone" data-category="dcp">
+                    <div class="cc-header color-2">
+                        <span class="cc-icon">💻</span>
+                        <span class="cc-rating">★ 4.9</span>
+                    </div>
+                    <div class="cc-body">
+                        <h3>Diploma in Programming (DCP)</h3>
+                        <p class="cc-desc">Grand Combo: C Programming + Core Java or Python + Oracle + Full Stack Web
+                            Dev (HTML, CSS, JS, Bootstrap).</p>
+                        <div class="cc-meta">
+                            <span>📅 New Batch: Monthly</span>
+                            <span>⏳ 6-8 Months</span>
+                        </div>
+                        <div class="cc-actions">
+                            <button class="btn-outline">Syllabus</button>
+                            <button class="btn-fill">Enroll</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Category 5: DCA (Consolidated) -->
+                <article class="course-card-clone" data-category="dca">
+                    <div class="cc-header color-3">
+                        <span class="cc-icon">📊</span>
+                        <span class="cc-rating">★ 4.9</span>
+                    </div>
+                    <div class="cc-body">
+                        <h3>Diploma in Accounting (DCA)</h3>
+                        <p class="cc-desc">Professional Combo: Tally Prime + Advanced Excel + KLiC Diploma Certified
+                            Exam training.</p>
+                        <div class="cc-meta">
+                            <span>📅 New Batch: Monthly</span>
+                            <span>⏳ 5-6 Months</span>
+                        </div>
+                        <div class="cc-actions">
+                            <button class="btn-outline">Syllabus</button>
+                            <button class="btn-fill">Enroll</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- View All Placeholder (Hidden by default, shown by JS in 'All' tab) -->
+                <article class="course-card-clone view-all-card" id="view-all-course-btn"
+                    style="display:none; cursor:pointer;">
+                    <div class="cc-body"
+                        style="height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:rgba(255,115,22,0.05);">
+                        <div class="cc-icon" style="font-size:3rem; margin-bottom:1rem; color:var(--color-orange);">➕
+                        </div>
+                        <h3>View All Courses</h3>
+                        <p class="cc-desc">Explore our full catalog of 20+ specialized programs.</p>
+                        <span class="link-arrow">Browse Now →</span>
                     </div>
                 </article>
             </div>
@@ -267,6 +490,9 @@
 
     <!-- Why Us Section -->
     <section class="why-us" id="why-us">
+        <div class="why-grid-bg"></div>
+        <div class="why-orb-1"></div>
+        <div class="why-orb-2"></div>
         <div class="container">
             <div class="why-wrapper">
                 <div class="why-content">
@@ -345,7 +571,7 @@
                 <!-- Faculty 1: Deepak Sir -->
                 <article class="faculty-card">
                     <div class="faculty-image">
-                        <img src="deepak_sir.png" alt="Deepak Sir">
+                        <img src="assets/images/deepak_sir.png" alt="Deepak Sir">
                         <div class="faculty-overlay"></div>
                     </div>
                     <div class="faculty-info">
@@ -366,7 +592,7 @@
                 <!-- Faculty 2: Amit Sir -->
                 <article class="faculty-card">
                     <div class="faculty-image">
-                        <img src="amit_sir.png" alt="Amit Sir">
+                        <img src="assets/images/amit_sir.png" alt="Amit Sir">
                         <div class="faculty-overlay"></div>
                     </div>
                     <div class="faculty-info">
@@ -386,7 +612,7 @@
                 <!-- Faculty 3: Rasika Madam -->
                 <article class="faculty-card">
                     <div class="faculty-image">
-                        <img src="rasika_madam.png" alt="Rasika Madam">
+                        <img src="assets/images/rasika_madam.png" alt="Rasika Madam">
                         <div class="faculty-overlay"></div>
                     </div>
                     <div class="faculty-info">
@@ -671,7 +897,7 @@
     </div>
     <!-- Three.js for 3D graphics -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
